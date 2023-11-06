@@ -1,0 +1,98 @@
+@import "Variables";
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@300&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+
+.App {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "Overpass", sans-serif;
+}
+
+.search-bar {
+  width: 400px;
+  margin: 20px auto;
+  display: flex;
+
+  &__input {
+    width: 100%;
+    font-size: 20px;
+    padding: 5px 10px 0;
+    border: 1px solid #164863;
+  }
+
+  &__submit {
+    width: 15%;
+    padding: 10px;
+    background: #164863;
+    color: white;
+    font-size: 20px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+  }
+}
+
+.current-weather {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+
+  &__location {
+    font-size: 30px;
+  }
+
+  &__main {
+    display: flex;
+    align-items: center;
+
+    &__visual {
+      width: 150px;
+      margin: 10px;
+    }
+
+    &__temp {
+      font-size: 50px;
+      padding-top: 10px;
+    }
+  }
+
+  &__details {
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    div {
+      margin: 15px 0 0;
+    }
+  }
+}
+
+.daily-panel {
+  padding: 0 50px;
+  margin: 100px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.daily-item {
+  font-size: 15px;
+  margin: 0 20px;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__date {
+    text-align: center;
+  }
+
+  &__visual {
+    height: 100px;
+    margin: 10px 0;
+  }
+}
