@@ -4,7 +4,6 @@ const CurrentWeather = () => {
   return (
     <div className="current-weather">
       <div className="current-weather__location">Kyiv, Ukraine</div>
-
       <div className="current-weather__main">
         <img
           src={require("../img/sun.png")}

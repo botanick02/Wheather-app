@@ -1,3 +1,5 @@
+import React from "react";
+
 const DailyWeatherItem = () => {
   return (
     <div className="daily-item">
@@ -6,7 +8,7 @@ const DailyWeatherItem = () => {
         <br />
         Friday
       </div>
-      <img src={require("../img/sun.png")} className="daily-item__visual" />
+      <img src={require("../img/sun.png")} alt="" className="daily-item__visual" />
       <div className="daily-item__temp">+10°C +6°C</div>
     </div>
   );
