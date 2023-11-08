@@ -5,6 +5,8 @@ import WeatherDaily from "./components/WeatherDaily";
 import WeatherHourly from "./components/WeatherHourly";
 
 function App() {
+
+
   return (
     <div className="App">
       <SearchBar/>
