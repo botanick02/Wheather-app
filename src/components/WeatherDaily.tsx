@@ -1,3 +1,4 @@
+import React from "react";
 import DailyWeatherItem from "../elements/DailyWeatherItem";
 
 const WeatherDaily = () => {
