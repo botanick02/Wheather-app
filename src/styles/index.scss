@@ -23,66 +23,65 @@
 .header {
   display: flex;
   justify-content: space-between;
-  padding: 32px 32px;
+  padding: 1.5vw 1.5vw 0;
 
   &__logo {
-    font-weight: 200;
-    font-size: 32px;
+    font-weight: 100;
+    font-size: 1.5vw;
   }
 
   .unit-switcher {
     font-family: Inter;
-    font-size: 24px;
+    font-size: 1vw;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 80px;
+    width: 4vw;
   }
 }
 
 .search-bar {
-  width: 513px;
+  width: 24vw;
   display: flex;
   align-items: center;
-  height: 31px;
+  height: 1.6vw;
   justify-content: space-between;
   background: rgba(255, 255, 255, 0.14);
   backdrop-filter: blur(7.5px);
-  padding-left: 8px;
+  padding: 0 0.2vw;
 
   &__input {
     display: flex;
-    height: 31px;
-    width: 453px;
+    width: 21vw;
+    height: 1.5vw;
     flex-direction: column;
     justify-content: center;
-    font-size: 16px;
+    font-size: 0.7vw;
     font-weight: 100;
     line-height: normal;
     background-color: rgba(255, 255, 255, 0);
     border: none;
     outline: none;
-    color: #fff;    
+    color: #fff;
   }
   ::placeholder {
-    color: #FFF;
-
+    color: #fff;
   }
 
   ::-ms-input-placeholder {
-    color: #FFF;
+    color: #fff;
   }
 
   &__submit {
     cursor: pointer;
-    height: 31px;
+    height: 1.5vw;
+    width: 1.5vw;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 31px;
   }
 }
 
@@ -91,60 +90,138 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 3vw;
+
+  &__day {
+    font-size: 0.9vw;
+    font-weight: 200;
+    margin-bottom: 0.2vw;
+  }
 
   &__location {
-    font-size: 30px;
+    font-size: 1.5vw;
+    font-weight: 200;
+    margin-bottom: 0.2vw;
   }
 
   &__main {
     display: flex;
-    align-items: center;
-
-    &__visual {
-      width: 150px;
-      margin: 10px;
-    }
-
-    &__temp {
-      font-size: 50px;
-      padding-top: 10px;
-    }
-  }
-
-  &__details {
-    font-size: 25px;
-    display: flex;
     flex-direction: column;
     align-items: center;
 
+    &__temp {
+      font-size: 50px;
+      font-size: 4.5vw;
+      font-weight: 200;
+    }
+
+    &__desc {
+      font-size: 1.5vw;
+      font-weight: 200;
+    }
+  }
+
+  &__maxmin {
+    width: 11.5vw;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1vw;
+    font-weight: 200;
+    margin-top: 0.5vw;
+
     div {
-      margin: 15px 0 0;
+      display: table;
+      text-align: center;
     }
   }
 }
 
 .daily-panel {
-  padding: 0 50px;
-  margin: 100px 0;
+  padding: 0 2.3vw;
+  margin: 4.6vw 0;
   display: flex;
   justify-content: center;
 }
 
 .daily-item {
-  font-size: 15px;
-  margin: 0 20px;
-  width: 150px;
+  width: 10.9vw;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 1vw;
 
-  &__date {
-    text-align: center;
+  &__day {
+    font-size: 1.25vw;
+    font-style: normal;
+    font-weight: 100;
+    margin-bottom: 0.4vw;
   }
 
-  &__visual {
-    height: 100px;
-    margin: 10px 0;
+  &__card {
+    height: 23vw;
+    background: rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(7.5px);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 200;
+
+    &__date {
+      font-size: 1vw;
+      font-weight: 200;
+      margin: 0.4vw 0 0;
+      text-align: center;
+    }
+
+    &__visual {
+      width: 5.2vw;
+      height: 5.2vw;
+      filter: invert(100%);
+      margin: 1vw 0;
+    }
+
+    &__descr {
+      font-size: 1vw;
+      margin-bottom: 0.5vw;
+    }
+
+    &__temp {
+      font-size: 1vw;
+      margin-bottom: 0.5vw;
+    }
+
+    &__rain {
+      font-size: 0.781vw;
+      margin-bottom: 0.5vw;
+    }
+
+    &__maxmin {
+      width: 8vw;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.833vw;
+      
+      div {
+        text-align: center;
+      }
+    }
+
+    &__suntime {
+      display: flex;
+      width: 8.5vw;
+      justify-content: space-between;
+      font-size: 0.8vw;
+
+      div {
+        text-align: center;
+      }
+
+      img {
+        width: 2.604vw;
+        height: 2.604vw;
+        margin-bottom: 0.5vw;
+      }
+    }
   }
 }
