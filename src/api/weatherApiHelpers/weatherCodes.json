@@ -1,0 +1,41 @@
+{
+  "weather_codes": [
+    { "code": 0, "description": "Clear sky" },
+    {
+      "code": [1, 2, 3],
+      "description": "Partly cloudy"
+    },
+    { "code": [45, 48], "description": "Fog and depositing rime fog" },
+    {
+      "code": [51, 53, 55],
+      "description": "Drizzle"
+    },
+    {
+      "code": [56, 57],
+      "description": "Freezing Drizzle"
+    },
+    {
+      "code": [61, 63, 65],
+      "description": "Rain"
+    },
+    {
+      "code": [66, 67],
+      "description": "Freezing Rain"
+    },
+    {
+      "code": [71, 73, 75],
+      "description": "Snow fall"
+    },
+    { "code": 77, "description": "Snow grains" },
+    {
+      "code": [80, 81, 82],
+      "description": "Rain showers"
+    },
+    { "code": [85, 86], "description": "Snow showers slight and heavy" },
+    { "code": 95, "description": "Thunderstorm" },
+    {
+      "code": [96, 99],
+      "description": "Thunderstorm with slight and heavy hail"
+    }
+  ]
+}

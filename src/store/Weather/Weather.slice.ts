@@ -5,13 +5,13 @@ export interface WeatherState {
   current: {
     time: Date;
     temperature_2m: number;
-    weatherCode: number;
+    weather_code: number;
   } | null;
   daily: {
     time: Date[];
     weatherCode: number[];
-    temperature_2mMax: number[];
-    temperature_2mMin: number[];
+    temperature_2m_max: number[];
+    temperature_2m_min: number[];
     sunrise: number[];
     sunset: Date[];
   } | null;
