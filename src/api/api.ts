@@ -4,14 +4,14 @@ import { switchMap, of, catchError } from 'rxjs';
 export interface WeatherData {
   current: {
     time: Date;
-    temperature2m: number;
+    temperature_2m: number;
     weatherCode: number;
   };
   daily: {
     time: Date[];
     weatherCode: number[];
-    temperature2mMax: number[];
-    temperature2mMin: number[];
+    temperature_2mMax: number[];
+    temperature_2mMin: number[];
     sunrise: number[];
     sunset: Date[];
   };
@@ -20,7 +20,7 @@ export interface WeatherData {
 
 const fetchWeatherDataApi = (): Promise<WeatherData>=> {
   return new Promise((resolve, reject) => {
-    const data$ = fromFetch('https://api.open-meteo.com/v1/forecast?latitude=35.0211&longitude=135.7538&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset').pipe(
+    const data$ = fromFetch('https://api.open-meteo.com/v1/forecast?latitude=35.0211&longitude=35.7538&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset').pipe(
       switchMap(response => {
         if (response.ok) {
           return response.json();

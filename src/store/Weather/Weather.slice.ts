@@ -4,14 +4,14 @@ import { WeatherData } from "../../api/api";
 export interface WeatherState {
   current: {
     time: Date;
-    temperature2m: number;
+    temperature_2m: number;
     weatherCode: number;
   } | null;
   daily: {
     time: Date[];
     weatherCode: number[];
-    temperature2mMax: number[];
-    temperature2mMin: number[];
+    temperature_2mMax: number[];
+    temperature_2mMin: number[];
     sunrise: number[];
     sunset: Date[];
   } | null;
