@@ -24,7 +24,8 @@ export const MeasureUnitsSlice = createSlice({
   name: "MeasureUnits",
   initialState: initialState,
   reducers: {
-    fetchWeather: (state) => {},
+    fetchWeather: (state) => {
+    },
     weatherFetched: (state, action: PayloadAction<WeatherData>) => {
       state.current = action.payload.current;
       state.daily = action.payload.daily;

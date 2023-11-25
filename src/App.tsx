@@ -6,17 +6,12 @@ import WeatherHourly from "./components/WeatherHourly";
 import Header from "./components/Header";
 import { useAppDispatch } from "./store/useAppDispatch";
 import { fetchWeather } from "./store/Weather/Weather.slice";
-import fetchWeatherDataApi from "./api/api";
 
 function App() {
 
   const dispatch = useAppDispatch();
   
-  useEffect(() => {
     dispatch(fetchWeather());
-  })
-
-  console.log(fetchWeatherDataApi())
 
   return (
     <div className="App-background">

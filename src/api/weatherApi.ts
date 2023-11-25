@@ -1,6 +1,3 @@
-import { fetchWeatherApi } from "openmeteo";
-import { fromFetch } from "rxjs/fetch";
-import { switchMap, of, catchError, from, map } from "rxjs";
 import { WeatherData } from "../store/Weather/Weather.slice";
 export interface WeatherFetchData {
   current: {
@@ -48,6 +45,7 @@ function api<T>(url: string): Promise<T> {
     if (!response.ok) {
       throw new Error(response.statusText);
     }
+
     return response.json() as Promise<T>;
   });
 }

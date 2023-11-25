@@ -5,8 +5,8 @@ const CurrentWeather = () => {
   const currenWeather = useAppSelector((state) => state.Weather.current);
   const todayWeather = useAppSelector(state => state.Weather.daily[0])
 
-  const todayMaxTemp = todayWeather.temperature2mMax;
-  const todayMinTemp = todayWeather.temperature2mMin;
+  const todayMaxTemp = todayWeather?.temperature2mMax;
+  const todayMinTemp = todayWeather?.temperature2mMin;
 
   return (
     (currenWeather && todayMaxTemp && todayMinTemp) ? (
