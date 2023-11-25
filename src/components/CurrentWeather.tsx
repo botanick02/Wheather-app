@@ -3,13 +3,10 @@ import { useAppSelector } from "../store/useAppDispatch";
 
 const CurrentWeather = () => {
   const currenWeather = useAppSelector((state) => state.Weather.current);
-  const todayMaxTemp = useAppSelector(
-    (state) => state.Weather.daily?.temperature_2m_max[0]
-  );
-  const todayMinTemp = useAppSelector(
-    (state) => state.Weather.daily?.temperature_2m_min[0]
-  );
+  const todayWeather = useAppSelector(state => state.Weather.daily[0])
 
+  const todayMaxTemp = todayWeather.temperature2mMax;
+  const todayMinTemp = todayWeather.temperature2mMin;
 
   return (
     (currenWeather && todayMaxTemp && todayMinTemp) ? (
@@ -18,11 +15,11 @@ const CurrentWeather = () => {
         <div className="current-weather__location">Sacramento</div>
         <div className="current-weather__main">
           <div className="current-weather__main__temp">
-            {currenWeather.temperature_2m >= 0 && "+"}
-            {Math.round(currenWeather.temperature_2m)}°C
+            {currenWeather.temperature2m >= 0 && "+"}
+            {Math.round(currenWeather.temperature2m)}°C
           </div>
           <div className="current-weather__main__desc">
-            {getWeatherDescription(currenWeather.weather_code)}
+            {getWeatherDescription(currenWeather.weatherCode)}
           </div>
         </div>
         <div className="current-weather__maxmin">

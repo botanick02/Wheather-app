@@ -1,7 +1,8 @@
 import { fetchWeatherApi } from "openmeteo";
-import { fromFetch } from 'rxjs/fetch';
-import { switchMap, of, catchError } from 'rxjs';
-export interface WeatherData {
+import { fromFetch } from "rxjs/fetch";
+import { switchMap, of, catchError, from, map } from "rxjs";
+import { WeatherData } from "../store/Weather/Weather.slice";
+export interface WeatherFetchData {
   current: {
     time: Date;
     temperature_2m: number;
@@ -9,7 +10,7 @@ export interface WeatherData {
   };
   daily: {
     time: Date[];
-    weatherCode: number[];
+    weather_code: number[];
     temperature_2m_max: number[];
     temperature_2m_min: number[];
     sunrise: number[];
@@ -17,32 +18,46 @@ export interface WeatherData {
   };
 }
 
+const transformWeatherData = (data: WeatherFetchData): WeatherData => {
+  if (!data) {
+    return { current: null, daily: [] };
+  }
 
-const fetchWeatherDataApi = (): Promise<WeatherData>=> {
-  return new Promise((resolve, reject) => {
-    const data$ = fromFetch('https://api.open-meteo.com/v1/forecast?latitude=35.0211&longitude=35.7538&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset').pipe(
-      switchMap(response => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          return of({ error: true, message: `Error ${ response.status }` });
-        }
-      }),
-      catchError(err => {
-        console.error(err);
-        return of({ error: true, message: err.message })
-      })
-    );
+  const { current, daily } = data;
 
-    data$.subscribe({
-      next: result => resolve(result),
-      error: err => reject(err),
-      complete: () => console.log('done')
-    });
-  }) as Promise<WeatherData>;
+  const transformedDaily = daily.time.map((time, index) => ({
+    time,
+    weatherCode: daily.weather_code[index],
+    temperature2mMax: daily.temperature_2m_max[index],
+    temperature2mMin: daily.temperature_2m_min[index],
+    sunrise: daily.sunrise[index],
+    sunset: daily.sunset[index],
+  }));
+
+  const transformedCurrent = {
+    time: current.time,
+    temperature2m: current.temperature_2m,
+    weatherCode: current.weather_code,
+  };
+
+  return { current: transformedCurrent, daily: transformedDaily };
 };
 
+function api<T>(url: string): Promise<T> {
+  return fetch(url).then((response) => {
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+    return response.json() as Promise<T>;
+  });
+}
+
+const fetchWeatherDataApi = (): Promise<WeatherData> => {
+  return api<WeatherFetchData>(
+    "https://api.open-meteo.com/v1/forecast?latitude=35.0211&longitude=35.7538&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset"
+  ).then((response) => {
+    return transformWeatherData(response);
+  });
+};
 
 export default fetchWeatherDataApi;
-
-

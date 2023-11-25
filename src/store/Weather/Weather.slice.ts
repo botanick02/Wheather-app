@@ -1,40 +1,31 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { WeatherData } from "../../api/api";
-
-export interface WeatherState {
+export interface WeatherData {
   current: {
     time: Date;
-    temperature_2m: number;
-    weather_code: number;
+    temperature2m: number;
+    weatherCode: number;
   } | null;
   daily: {
-    time: Date[];
-    weatherCode: number[];
-    temperature_2m_max: number[];
-    temperature_2m_min: number[];
-    sunrise: number[];
-    sunset: Date[];
-  } | null;
+    time: Date;
+    weatherCode: number;
+    temperature2mMax: number;
+    temperature2mMin: number;
+    sunrise: number;
+    sunset: Date;
+  }[];
 }
 
-const initialState: WeatherState = {
+const initialState: WeatherData = {
   current: null,
-  daily: null,
+  daily: [],
 };
 
 export const MeasureUnitsSlice = createSlice({
   name: "MeasureUnits",
   initialState: initialState,
   reducers: {
-    fetchWeather: (
-        state
-    ) => {
-
-    },
-    weatherFetched: (
-      state,
-      action: PayloadAction<WeatherData>
-    ) => {
+    fetchWeather: (state) => {},
+    weatherFetched: (state, action: PayloadAction<WeatherData>) => {
       state.current = action.payload.current;
       state.daily = action.payload.daily;
     },
