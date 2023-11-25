@@ -9,12 +9,11 @@ export interface WeatherState {
   } | null;
   daily: {
     time: Date[];
-    weatherCode: Float32Array;
-    temperature2mMax: Float32Array;
-    temperature2mMin: Float32Array;
-    sunrise: Float32Array;
-    sunset: Float32Array;
-    precipitationSum: Float32Array;
+    weatherCode: number[];
+    temperature2mMax: number[];
+    temperature2mMin: number[];
+    sunrise: number[];
+    sunset: Date[];
   } | null;
 }
 
