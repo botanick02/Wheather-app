@@ -52,7 +52,7 @@ function api<T>(url: string): Promise<T> {
 
 const fetchWeatherDataApi = (): Promise<WeatherData> => {
   return api<WeatherFetchData>(
-    "https://api.open-meteo.com/v1/forecast?latitude=35.0211&longitude=35.7538&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset"
+    "https://api.open-meteo.com/v1/forecast?latitude=38.5816&longitude=-121.4944&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset"
   ).then((response) => {
     return transformWeatherData(response);
   });
