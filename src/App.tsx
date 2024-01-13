@@ -16,13 +16,11 @@ function App() {
     if (locationId) {
       dispatch(fetchWeather());
     }
-  }, [locationId]);
+  }, [locationId, dispatch]);
 
   useEffect(() => {
     dispatch(fetchLocation({id: 270}));
-  }, []);
-
-  
+  }, [dispatch]);
 
   return (
     <div className="App-background">

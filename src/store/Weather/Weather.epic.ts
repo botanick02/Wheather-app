@@ -1,5 +1,5 @@
 import { Epic, combineEpics, ofType } from "redux-observable";
-import { from, mergeMap, map, catchError } from "rxjs"; 
+import { from, mergeMap, map } from "rxjs"; 
 import fetchWeatherDataApi from "../../api/weatherApi";
 import { WeatherData, fetchWeather, weatherFetched } from "./Weather.slice";
 

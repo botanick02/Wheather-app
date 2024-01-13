@@ -1,5 +1,5 @@
 import { Epic, combineEpics, ofType } from "redux-observable";
-import { from, mergeMap, map, catchError } from "rxjs";
+import { from, mergeMap, map } from "rxjs";
 import { fetchLocation, locationFetched } from "./Location.slice";
 import {
   LocationFetchData,
