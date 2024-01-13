@@ -3,14 +3,17 @@ import { combineEpics, createEpicMiddleware } from "redux-observable";
 import MeasureUnitsSlice from "./MeasureUnits/MeasureUnits.slice";
 import WeatherSlice from "./Weather/Weather.slice";
 import { WeatherEpic } from "./Weather/Weather.epic";
+import LocationSlice from "./Location/Location.slice";
+import { LocationEpic } from "./Location/Location.epic";
 
 const epicMiddleware = createEpicMiddleware();
 
-const rootEpic = combineEpics(WeatherEpic);
+const rootEpic = combineEpics(WeatherEpic, LocationEpic);
 
 const rootReducer = combineReducers({
   MeasureUnits: MeasureUnitsSlice,
-  Weather: WeatherSlice
+  Weather: WeatherSlice,
+  Location: LocationSlice
 });
 
 export const store = configureStore({

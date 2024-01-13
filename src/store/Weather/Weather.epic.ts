@@ -8,7 +8,7 @@ export const fetchWeatherEpic: Epic<any, any, any> = (action$, state$) => {
     return action$.pipe(
       ofType(fetchWeather),
       mergeMap(() =>
-        from(fetchWeatherDataApi()).pipe(
+        from(fetchWeatherDataApi(state$.value.Location.latitude, state$.value.Location.longitude)).pipe(
           map((data: WeatherData) => 
             weatherFetched(data)
           )

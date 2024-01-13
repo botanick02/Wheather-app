@@ -1,9 +1,17 @@
 import React from "react";
+import { dailyWeatherData } from "../store/Weather/Weather.slice";
+import { getDayOfWeek } from "../tools/datetime";
 
-const DailyWeatherItem = () => {
+interface DailyWeatherItemProps {
+  day: dailyWeatherData;
+}
+
+const DailyWeatherItem = ({day}: DailyWeatherItemProps) => {
+  const dayDate = new Date(day.time);
+
   return (
     <div className="daily-item">
-      <div className="daily-item__day">Friday</div>
+      <div className="daily-item__day">{getDayOfWeek(dayDate)}</div>
       <div className="daily-item__card">
         <div className="daily-item__card__date">01.01</div>
         <img

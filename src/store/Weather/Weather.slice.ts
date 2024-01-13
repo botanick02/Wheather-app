@@ -5,16 +5,17 @@ export interface WeatherData {
     temperature2m: number;
     weatherCode: number;
   } | null;
-  daily: {
-    time: Date;
-    weatherCode: number;
-    temperature2mMax: number;
-    temperature2mMin: number;
-    sunrise: number;
-    sunset: Date;
-  }[];
+  daily: dailyWeatherData[];
 }
 
+export interface dailyWeatherData{
+  time: Date;
+  weatherCode: number;
+  temperature2mMax: number;
+  temperature2mMin: number;
+  sunrise: number;
+  sunset: Date;
+}
 const initialState: WeatherData = {
   current: null,
   daily: [],

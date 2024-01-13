@@ -1,4 +1,5 @@
 import { WeatherData } from "../store/Weather/Weather.slice";
+import { api } from "./core";
 export interface WeatherFetchData {
   current: {
     time: Date;
@@ -40,19 +41,9 @@ const transformWeatherData = (data: WeatherFetchData): WeatherData => {
   return { current: transformedCurrent, daily: transformedDaily };
 };
 
-function api<T>(url: string): Promise<T> {
-  return fetch(url).then((response) => {
-    if (!response.ok) {
-      throw new Error(response.statusText);
-    }
-
-    return response.json() as Promise<T>;
-  });
-}
-
-const fetchWeatherDataApi = (): Promise<WeatherData> => {
+const fetchWeatherDataApi = (latitude: number, longitude: number): Promise<WeatherData> => {
   return api<WeatherFetchData>(
-    "https://api.open-meteo.com/v1/forecast?latitude=38.5816&longitude=-121.4944&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset"
+    `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset`
   ).then((response) => {
     return transformWeatherData(response);
   });
