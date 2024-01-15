@@ -5,6 +5,7 @@ import { getDayOfWeek } from "../tools/datetime";
 const CurrentWeather = () => {
   const currenWeather = useAppSelector((state) => state.Weather.current);
   const todayWeather = useAppSelector((state) => state.Weather.daily[0]);
+  const location = useAppSelector(state => state.Location);
 
   const todayMaxTemp = todayWeather?.temperature2mMax;
   const todayMinTemp = todayWeather?.temperature2mMin;
@@ -12,7 +13,7 @@ const CurrentWeather = () => {
   return currenWeather && todayMaxTemp && todayMinTemp ? (
     <div className="current-weather">
       <div className="current-weather__day">{getDayOfWeek()}</div>
-      <div className="current-weather__location">Sacramento</div>
+      <div className="current-weather__location">{location.city}</div>
       <div className="current-weather__main">
         <div className="current-weather__main__temp">
           {currenWeather.temperature2m >= 0 && "+"}
