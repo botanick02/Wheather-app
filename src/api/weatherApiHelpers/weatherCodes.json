@@ -1,41 +1,61 @@
 {
   "weather_codes": [
-    { "code": 0, "description": "Clear sky" },
+    { "code": 0, "description": "Clear sky", "icon": "sunny.png" },
     {
       "code": [1, 2, 3],
-      "description": "Partly cloudy"
+      "description": "Partly cloudy",
+      "icon": "clear-sky.png"
     },
-    { "code": [45, 48], "description": "Fog and depositing rime fog" },
+    {
+      "code": [45, 48],
+      "description": "Fog and depositing rime fog",
+      "icon": "cloud.png"
+    },
     {
       "code": [51, 53, 55],
-      "description": "Drizzle"
+      "description": "Drizzle",
+      "icon": "rainy-day.png"
     },
     {
       "code": [56, 57],
-      "description": "Freezing Drizzle"
+      "description": "Freezing Drizzle",
+      "icon": "sleet.png"
     },
     {
       "code": [61, 63, 65],
-      "description": "Rain"
+      "description": "Rain",
+      "icon": "downpour.png"
     },
     {
       "code": [66, 67],
-      "description": "Freezing Rain"
+      "description": "Freezing Rain",
+      "icon": "sleet.png"
     },
     {
       "code": [71, 73, 75],
-      "description": "Snow fall"
+      "description": "Snow fall",
+      "icon": "snowfall.png"
     },
-    { "code": 77, "description": "Snow grains" },
+    { "code": 77, "description": "Snow grains", "icon": "sleet.png" },
     {
       "code": [80, 81, 82],
-      "description": "Rain showers"
+      "description": "Rain showers",
+      "icon": "rainy-day.png"
     },
-    { "code": [85, 86], "description": "Snow showers slight and heavy" },
-    { "code": 95, "description": "Thunderstorm" },
+    {
+      "code": [85, 86],
+      "description": "Snow showers slight and heavy",
+      "icon": "sleet.png"
+    },
+    {
+      "code": 95,
+      "description": "Thunderstorm",
+      "icon": "dark-and-stormy.png"
+    },
     {
       "code": [96, 99],
-      "description": "Thunderstorm with slight and heavy hail"
+      "description": "Thunderstorm with slight and heavy hail",
+      "icon": "dark-and-stormy.png"
     }
   ]
 }

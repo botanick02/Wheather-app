@@ -1,7 +1,7 @@
 import React from "react";
 import { dailyWeatherData } from "../store/Weather/Weather.slice";
 import { getDayOfWeek, toTwoDigits } from "../tools/datetime";
-import getWeatherDescription from "../api/weatherApiHelpers/weatherDescription";
+import { getWeatherDescription, getWeatherIcon } from "../api/weatherApiHelpers/weatherCodesHelper";
 
 interface DailyWeatherItemProps {
   day: dailyWeatherData;
@@ -30,7 +30,7 @@ const DailyWeatherItem = ({ day }: DailyWeatherItemProps) => {
           {toTwoDigits(dayDate.getDate())}.{toTwoDigits(dayDate.getMonth() + 1)}
         </div>
         <img
-          src={require("../img/sunny.png")}
+          src={require(`../img/${getWeatherIcon(day.weatherCode)}`)}
           alt=""
           className="daily-item__card__visual"
         />

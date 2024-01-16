@@ -1,4 +1,4 @@
-import getWeatherDescription from "../api/weatherApiHelpers/weatherDescription";
+import { getWeatherDescription } from "../api/weatherApiHelpers/weatherCodesHelper";
 import { useAppSelector } from "../store/useAppDispatch";
 import { getDayOfWeek } from "../tools/datetime";
 

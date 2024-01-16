@@ -3,11 +3,12 @@ import weatherCodesData from './weatherCodes.json';
 type WeatherCode = {
   code: number | number[];
   description: string;
+  icon: string;
 };
 
 const weatherCodes: WeatherCode[] = weatherCodesData.weather_codes;
 
-const getWeatherDescription = (code: number): string | undefined => {
+export const getWeatherDescription = (code: number): string | undefined => {
   for (const weatherCode of weatherCodes) {
     if (Array.isArray(weatherCode.code)) {
       if (weatherCode.code.includes(code)) {
@@ -19,4 +20,15 @@ const getWeatherDescription = (code: number): string | undefined => {
   }
 };
 
-export default getWeatherDescription;
+
+export const getWeatherIcon = (code: number): string | undefined => {
+  for (const weatherCode of weatherCodes) {
+    if (Array.isArray(weatherCode.code)) {
+      if (weatherCode.code.includes(code)) {
+        return weatherCode.icon;
+      }
+    } else if (weatherCode.code === code) {
+      return weatherCode.icon;
+    }
+  }
+};
