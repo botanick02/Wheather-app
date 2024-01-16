@@ -7,10 +7,13 @@ import Header from "./components/Header";
 import { useAppDispatch, useAppSelector } from "./store/useAppDispatch";
 import { fetchWeather } from "./store/Weather/Weather.slice";
 import { fetchLocation } from "./store/Location/Location.slice";
+import { getWeatherBackgroundStyle } from "./api/weatherApiHelpers/weatherCodesHelper";
 
 function App() {
   const dispatch = useAppDispatch();
   const locationId = useAppSelector((state) => state.Location.id);
+  const currentWeatherCode = useAppSelector(state => state.Weather.current?.weatherCode);
+
 
   useEffect(() => {
     if (locationId) {
@@ -22,8 +25,8 @@ function App() {
     dispatch(fetchLocation({id: 270}));
   }, [dispatch]);
 
-  return (
-    <div className="App-background">
+  return currentWeatherCode ? (
+  <div className={`App-background ${getWeatherBackgroundStyle(currentWeatherCode)}`}>
       <div className="App">
         <Header />
         <CurrentWeather />
@@ -32,7 +35,7 @@ function App() {
         <Footer />
       </div>
     </div>
-  );
+  ): <></>;
 }
 
 export default App;

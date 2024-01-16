@@ -1,61 +1,82 @@
 {
   "weather_codes": [
-    { "code": 0, "description": "Clear sky", "icon": "sunny.png" },
+    {
+      "code": [0],
+      "description": "Clear sky",
+      "icon": "sunny.png",
+      "backgroundStyle": "sunny"
+    },
     {
       "code": [1, 2, 3],
       "description": "Partly cloudy",
-      "icon": "clear-sky.png"
+      "icon": "clear-sky.png",
+      "backgroundStyle": "partlyCloudly"
     },
     {
       "code": [45, 48],
       "description": "Fog and depositing rime fog",
-      "icon": "cloud.png"
+      "icon": "cloud.png",
+      "backgroundStyle": "cloudly"
     },
     {
       "code": [51, 53, 55],
       "description": "Drizzle",
-      "icon": "rainy-day.png"
+      "icon": "rainy-day.png",
+      "backgroundStyle": "rainy"
     },
     {
       "code": [56, 57],
       "description": "Freezing Drizzle",
-      "icon": "sleet.png"
+      "icon": "sleet.png",
+      "backgroundStyle": "freezing"
     },
     {
       "code": [61, 63, 65],
       "description": "Rain",
-      "icon": "downpour.png"
+      "icon": "downpour.png",
+      "backgroundStyle": "rainy"
     },
     {
       "code": [66, 67],
       "description": "Freezing Rain",
-      "icon": "sleet.png"
+      "icon": "sleet.png",
+      "backgroundStyle": "freezing"
     },
     {
       "code": [71, 73, 75],
       "description": "Snow fall",
-      "icon": "snowfall.png"
+      "icon": "snowfall.png",
+      "backgroundStyle": "snow"
     },
-    { "code": 77, "description": "Snow grains", "icon": "sleet.png" },
+    {
+      "code": [77],
+      "description": "Snow grains",
+      "icon": "sleet.png",
+      "backgroundStyle": "snow"
+    },
     {
       "code": [80, 81, 82],
       "description": "Rain showers",
-      "icon": "rainy-day.png"
+      "icon": "rainy-day.png",
+      "backgroundStyle": "rainy"
     },
     {
       "code": [85, 86],
       "description": "Snow showers slight and heavy",
-      "icon": "sleet.png"
+      "icon": "sleet.png",
+      "backgroundStyle": "freezing"
     },
     {
-      "code": 95,
+      "code": [95],
       "description": "Thunderstorm",
-      "icon": "dark-and-stormy.png"
+      "icon": "dark-and-stormy.png",
+      "backgroundStyle": "storm"
     },
     {
       "code": [96, 99],
       "description": "Thunderstorm with slight and heavy hail",
-      "icon": "dark-and-stormy.png"
+      "icon": "dark-and-stormy.png",
+      "backgroundStyle": "storm"
     }
   ]
 }
