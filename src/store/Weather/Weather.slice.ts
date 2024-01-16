@@ -13,8 +13,8 @@ export interface dailyWeatherData{
   weatherCode: number;
   temperature2mMax: number;
   temperature2mMin: number;
-  sunrise: number;
-  sunset: Date;
+  sunrise: string;
+  sunset: string;
   precipitationProbability: number;
 }
 const initialState: WeatherData = {

@@ -11,8 +11,8 @@ export interface WeatherFetchData {
     weather_code: number[];
     temperature_2m_max: number[];
     temperature_2m_min: number[];
-    sunrise: number[];
-    sunset: Date[];
+    sunrise: string[];
+    sunset: string[];
     precipitation_probability_max: number[];
   };
 }
