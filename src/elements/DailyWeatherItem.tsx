@@ -1,6 +1,7 @@
 import React from "react";
 import { dailyWeatherData } from "../store/Weather/Weather.slice";
 import { getDayOfWeek, toTwoDigits } from "../tools/datetime";
+import getWeatherDescription from "../api/weatherApiHelpers/weatherDescription";
 
 interface DailyWeatherItemProps {
   day: dailyWeatherData;
@@ -19,17 +20,16 @@ const DailyWeatherItem = ({day}: DailyWeatherItemProps) => {
           alt=""
           className="daily-item__card__visual"
         />
-        <div className="daily-item__card__descr">Sunny</div>
-        <div className="daily-item__card__temp">+16°C</div>
-        <div className="daily-item__card__rain">Chance of rain: 15%</div>
+        <div className="daily-item__card__descr">{getWeatherDescription(day.weatherCode)}</div>
         <div className="daily-item__card__maxmin">
           <div>
-            Max.<div>+17°C</div>
+            Max.<div>{Math.round(day.temperature2mMax)}°C</div>
           </div>
           <div>
-            Min.<div>+15°C</div>
+            Min.<div>{Math.round(day.temperature2mMin)}°C</div>
           </div>
         </div>
+        <div className="daily-item__card__rain">Precipitation chance: {day.precipitationProbability}%</div>
         <div className="daily-item__card__suntime">
           <div>
             <img
@@ -37,7 +37,7 @@ const DailyWeatherItem = ({day}: DailyWeatherItemProps) => {
               alt=""
               className="daily-item__card__visual"
             />
-            <div>6:00AM</div>
+            <div>{new Date(day.sunrise).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})}</div>
           </div>
           <div>
             <img
@@ -45,7 +45,7 @@ const DailyWeatherItem = ({day}: DailyWeatherItemProps) => {
               alt=""
               className="daily-item__card__visual"
             />
-            <div>6:00PM</div>
+            <div>{new Date(day.sunset).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})}</div>
           </div>
         </div>
       </div>

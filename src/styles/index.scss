@@ -200,17 +200,13 @@
 
     &__descr {
       font-size: 1vw;
-      margin-bottom: 0.5vw;
-    }
-
-    &__temp {
-      font-size: 1vw;
-      margin-bottom: 0.5vw;
+      margin: 0 auto 0.5vw;
+      text-align: center;
+      min-height: 2.5vw;
     }
 
     &__rain {
       font-size: 0.781vw;
-      margin-bottom: 0.5vw;
     }
 
     &__maxmin {
@@ -218,6 +214,7 @@
       display: flex;
       justify-content: space-between;
       font-size: 0.833vw;
+      margin-bottom: 0.5vw;
       
       div {
         text-align: center;

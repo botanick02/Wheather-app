@@ -15,6 +15,7 @@ export interface dailyWeatherData{
   temperature2mMin: number;
   sunrise: number;
   sunset: Date;
+  precipitationProbability: number;
 }
 const initialState: WeatherData = {
   current: null,
