@@ -1,6 +1,6 @@
 import React from "react";
 import { dailyWeatherData } from "../store/Weather/Weather.slice";
-import { getDayOfWeek } from "../tools/datetime";
+import { getDayOfWeek, toTwoDigits } from "../tools/datetime";
 
 interface DailyWeatherItemProps {
   day: dailyWeatherData;
@@ -13,7 +13,7 @@ const DailyWeatherItem = ({day}: DailyWeatherItemProps) => {
     <div className="daily-item">
       <div className="daily-item__day">{getDayOfWeek(dayDate)}</div>
       <div className="daily-item__card">
-        <div className="daily-item__card__date">01.01</div>
+        <div className="daily-item__card__date">{toTwoDigits(dayDate.getDate())}.{toTwoDigits(dayDate.getMonth() + 1)}</div>
         <img
           src={require("../img/sunny.png")}
           alt=""
