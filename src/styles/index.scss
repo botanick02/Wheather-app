@@ -224,6 +224,8 @@
       margin: 0 auto 0.5vw;
       text-align: center;
       min-height: 2.5vw;
+      display: flex;
+      align-items: center;
     }
 
     &__rain {
