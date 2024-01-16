@@ -13,13 +13,13 @@ function App() {
   const dispatch = useAppDispatch();
   const locationId = useAppSelector((state) => state.Location.id);
   const currentWeatherCode = useAppSelector(state => state.Weather.current?.weatherCode);
-
+  const currentUnit = useAppSelector(state => state.MeasureUnits.currentUnit);
 
   useEffect(() => {
     if (locationId) {
       dispatch(fetchWeather());
     }
-  }, [locationId, dispatch]);
+  }, [locationId, currentUnit, dispatch]);
 
   useEffect(() => {
     dispatch(fetchLocation({id: 270}));

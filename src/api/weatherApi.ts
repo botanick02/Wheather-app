@@ -43,9 +43,9 @@ const transformWeatherData = (data: WeatherFetchData): WeatherData => {
   return { current: transformedCurrent, daily: transformedDaily };
 };
 
-const fetchWeatherDataApi = (latitude: number, longitude: number): Promise<WeatherData> => {
+const fetchWeatherDataApi = (latitude: number, longitude: number, fahrenheit = false): Promise<WeatherData> => {
   return api<WeatherFetchData>(
-    `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_probability_max`
+    `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_probability_max${fahrenheit ? "&temperature_unit=fahrenheit" : ""}`
   ).then((response) => {
     return transformWeatherData(response);
   });

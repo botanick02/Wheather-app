@@ -2,12 +2,16 @@ import React from "react";
 import { dailyWeatherData } from "../store/Weather/Weather.slice";
 import { getDayOfWeek, toTwoDigits } from "../tools/datetime";
 import { getWeatherDescription, getWeatherIcon } from "../api/weatherApiHelpers/weatherCodesHelper";
+import { useAppSelector } from "../store/useAppDispatch";
 
 interface DailyWeatherItemProps {
   day: dailyWeatherData;
 }
 
 const DailyWeatherItem = ({ day }: DailyWeatherItemProps) => {
+  const currentUnit = useAppSelector(state => state.MeasureUnits.currentUnit);
+  const unitSign = currentUnit === "celsius" ? "°C" : "°F";
+
   const dayDate = new Date(day.time);
   var sunrise = new Date(day.sunrise);
   var userTimezoneOffset = sunrise.getTimezoneOffset() * 60000;
@@ -39,10 +43,10 @@ const DailyWeatherItem = ({ day }: DailyWeatherItemProps) => {
         </div>
         <div className="daily-item__card__maxmin">
           <div>
-            Max.<div>{Math.round(day.temperature2mMax)}°C</div>
+            Max.<div>{Math.round(day.temperature2mMax)}{unitSign}</div>
           </div>
           <div>
-            Min.<div>{Math.round(day.temperature2mMin)}°C</div>
+            Min.<div>{Math.round(day.temperature2mMin)}{unitSign}</div>
           </div>
         </div>
         <div className="daily-item__card__rain">
