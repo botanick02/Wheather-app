@@ -25,7 +25,7 @@ function App() {
     dispatch(fetchLocation({id: 270}));
   }, [dispatch]);
 
-  return currentWeatherCode ? (
+  return currentWeatherCode !== undefined ? (
   <div className={`App-background ${getWeatherBackgroundStyle(currentWeatherCode)}`}>
       <div className="App">
         <Header />
