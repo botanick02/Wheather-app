@@ -18,6 +18,8 @@ const SearchBar = () => {
 
     if (searchInput){
       getSearchItems();
+    }else{
+      setSearchItems([]);
     }
   }, [searchInput])
 
