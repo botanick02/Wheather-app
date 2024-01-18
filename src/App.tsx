@@ -12,8 +12,12 @@ import { getWeatherBackgroundStyle } from "./api/weatherApiHelpers/weatherCodesH
 function App() {
   const dispatch = useAppDispatch();
   const locationId = useAppSelector((state) => state.Location.id);
-  const currentWeatherCode = useAppSelector(state => state.Weather.current?.weatherCode);
-  const currentUnit = useAppSelector(state => state.MeasureUnits.currentUnit);
+  const currentWeatherCode = useAppSelector(
+    (state) => state.Weather.current?.weatherCode
+  );
+  const currentUnit = useAppSelector((state) => state.MeasureUnits.currentUnit);
+
+  const weatherIsLoading = useAppSelector((state) => state.Weather.isLoading);
 
   useEffect(() => {
     if (locationId) {
@@ -22,11 +26,17 @@ function App() {
   }, [locationId, currentUnit, dispatch]);
 
   useEffect(() => {
-    dispatch(fetchLocation({id: 270}));
+    dispatch(fetchLocation({ id: 270 }));
   }, [dispatch]);
 
   return currentWeatherCode !== undefined ? (
-  <div className={`App-background ${getWeatherBackgroundStyle(currentWeatherCode)}`}>
+    <div
+      className={`App-background ${getWeatherBackgroundStyle(
+        currentWeatherCode
+      )}`}
+    >
+      {weatherIsLoading && <div className={`blur-loading`}></div>}
+
       <div className="App">
         <Header />
         <CurrentWeather />
@@ -35,7 +45,9 @@ function App() {
         <Footer />
       </div>
     </div>
-  ): <></>;
+  ) : (
+    <></>
+  );
 }
 
 export default App;

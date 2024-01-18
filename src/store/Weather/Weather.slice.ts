@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
 export interface WeatherData {
   current: {
     time: Date;
@@ -8,7 +9,7 @@ export interface WeatherData {
   daily: dailyWeatherData[];
 }
 
-export interface dailyWeatherData{
+export interface dailyWeatherData {
   time: Date;
   weatherCode: number;
   temperature2mMax: number;
@@ -17,9 +18,15 @@ export interface dailyWeatherData{
   sunset: string;
   precipitationProbability: number;
 }
-const initialState: WeatherData = {
+
+interface WeatherState extends WeatherData{
+  isLoading: boolean;
+}
+
+const initialState: WeatherState = {
   current: null,
   daily: [],
+  isLoading: true,
 };
 
 export const MeasureUnitsSlice = createSlice({
@@ -27,10 +34,12 @@ export const MeasureUnitsSlice = createSlice({
   initialState: initialState,
   reducers: {
     fetchWeather: (state) => {
+      state.isLoading = true;
     },
     weatherFetched: (state, action: PayloadAction<WeatherData>) => {
       state.current = action.payload.current;
       state.daily = action.payload.daily;
+      state.isLoading = false;
     },
   },
 });
