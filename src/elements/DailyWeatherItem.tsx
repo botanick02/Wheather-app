@@ -1,7 +1,10 @@
 import React from "react";
 import { dailyWeatherData } from "../store/Weather/Weather.slice";
 import { getDayOfWeek, toTwoDigits } from "../tools/datetime";
-import { getWeatherDescription, getWeatherIcon } from "../api/weatherApiHelpers/weatherCodesHelper";
+import {
+  getWeatherDescription,
+  getWeatherIcon,
+} from "../api/weatherApiHelpers/weatherCodesHelper";
 import { useAppSelector } from "../store/useAppDispatch";
 
 interface DailyWeatherItemProps {
@@ -9,7 +12,7 @@ interface DailyWeatherItemProps {
 }
 
 const DailyWeatherItem = ({ day }: DailyWeatherItemProps) => {
-  const currentUnit = useAppSelector(state => state.MeasureUnits.currentUnit);
+  const currentUnit = useAppSelector((state) => state.MeasureUnits.currentUnit);
   const unitSign = currentUnit === "celsius" ? "°C" : "°F";
 
   const dayDate = new Date(day.time);
@@ -43,10 +46,18 @@ const DailyWeatherItem = ({ day }: DailyWeatherItemProps) => {
         </div>
         <div className="daily-item__card__maxmin">
           <div>
-            Max.<div>{Math.round(day.temperature2mMax)}{unitSign}</div>
+            Max.
+            <div>
+              {Math.round(day.temperature2mMax)}
+              {unitSign}
+            </div>
           </div>
           <div>
-            Min.<div>{Math.round(day.temperature2mMin)}{unitSign}</div>
+            Min.
+            <div>
+              {Math.round(day.temperature2mMin)}
+              {unitSign}
+            </div>
           </div>
         </div>
         <div className="daily-item__card__rain">

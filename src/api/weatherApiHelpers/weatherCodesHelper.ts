@@ -1,4 +1,4 @@
-import weatherCodesData from './weatherCodes.json';
+import weatherCodesData from "./weatherCodes.json";
 
 type WeatherCode = {
   code: number | number[];

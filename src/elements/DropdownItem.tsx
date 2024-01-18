@@ -1,25 +1,25 @@
 import { fetchLocation } from "../store/Location/Location.slice";
 import { useAppDispatch } from "../store/useAppDispatch";
 
-export interface SearchItem{
-    id: number,
-    name: string
+export interface SearchItem {
+  id: number;
+  name: string;
 }
 
-interface DropdownItemProps{
-    item: SearchItem;
+interface DropdownItemProps {
+  item: SearchItem;
 }
 
-const DropdownItem = ({item}: DropdownItemProps) => {
-    const dispatch = useAppDispatch();
+const DropdownItem = ({ item }: DropdownItemProps) => {
+  const dispatch = useAppDispatch();
 
-    const setCityForFetch = () => {
-        dispatch(fetchLocation({id: item.id}))
-    }
+  const setCityForFetch = () => {
+    dispatch(fetchLocation({ id: item.id }));
+  };
 
   return (
     <div className="search-bar__dropdown-item" onClick={setCityForFetch}>
-        {item.name}
+      {item.name}
     </div>
   );
 };

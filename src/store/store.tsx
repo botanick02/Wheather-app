@@ -13,7 +13,7 @@ const rootEpic = combineEpics(WeatherEpic, LocationEpic);
 const rootReducer = combineReducers({
   MeasureUnits: MeasureUnitsSlice,
   Weather: WeatherSlice,
-  Location: LocationSlice
+  Location: LocationSlice,
 });
 
 export const store = configureStore({

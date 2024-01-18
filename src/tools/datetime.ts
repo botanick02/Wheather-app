@@ -12,6 +12,6 @@ export const getDayOfWeek = (date?: Date): string => {
   return days[date.getDay()];
 };
 
-export const toTwoDigits = (number: number):string => {
+export const toTwoDigits = (number: number): string => {
   return number > 10 ? number.toString() : "0" + number.toString();
-}
+};

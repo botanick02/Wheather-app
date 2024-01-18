@@ -13,7 +13,9 @@ export interface LocationFetchDataMini {
   name: string;
 }
 
-export const fetchCities = async (city: string): Promise<LocationFetchDataMini[]> => {
+export const fetchCities = async (
+  city: string
+): Promise<LocationFetchDataMini[]> => {
   return api<LocationFetchDataMini[]>(
     `https://localhost:7107/api/GeoSearch/${city}?resultsNumber=5`
   ).then((response) => {

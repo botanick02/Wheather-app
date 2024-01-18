@@ -4,29 +4,27 @@ import SearchDropdown from "./SearchDropdown";
 import { LocationFetchDataMini, fetchCities } from "../api/locationsApi";
 import { useAppSelector } from "../store/useAppDispatch";
 
-
-
 const SearchBar = () => {
   const [searchInput, setSearchBarInput] = useState("");
   const [searchItems, setSearchItems] = useState<LocationFetchDataMini[]>([]);
-  const locationId = useAppSelector(state => state.Location.id);
+  const locationId = useAppSelector((state) => state.Location.id);
 
   useEffect(() => {
     const getSearchItems = async () => {
-      setSearchItems(await fetchCities(searchInput))
-    }
+      setSearchItems(await fetchCities(searchInput));
+    };
 
-    if (searchInput){
+    if (searchInput) {
       getSearchItems();
-    }else{
+    } else {
       setSearchItems([]);
     }
-  }, [searchInput])
+  }, [searchInput]);
 
-  useEffect(()=>{
+  useEffect(() => {
     setSearchBarInput("");
     setSearchItems([]);
-  }, [locationId])
+  }, [locationId]);
 
   return (
     <div className="search-bar">

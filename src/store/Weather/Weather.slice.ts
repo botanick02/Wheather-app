@@ -19,7 +19,7 @@ export interface dailyWeatherData {
   precipitationProbability: number;
 }
 
-interface WeatherState extends WeatherData{
+interface WeatherState extends WeatherData {
   isLoading: boolean;
 }
 

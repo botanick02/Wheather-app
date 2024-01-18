@@ -5,8 +5,8 @@ import { getDayOfWeek } from "../tools/datetime";
 const CurrentWeather = () => {
   const currenWeather = useAppSelector((state) => state.Weather.current);
   const todayWeather = useAppSelector((state) => state.Weather.daily[0]);
-  const location = useAppSelector(state => state.Location);
-  const currentUnit = useAppSelector(state => state.MeasureUnits.currentUnit);
+  const location = useAppSelector((state) => state.Location);
+  const currentUnit = useAppSelector((state) => state.MeasureUnits.currentUnit);
   const unitSign = currentUnit === "celsius" ? "°C" : "°F";
 
   const todayMaxTemp = todayWeather?.temperature2mMax;
@@ -19,7 +19,8 @@ const CurrentWeather = () => {
       <div className="current-weather__main">
         <div className="current-weather__main__temp">
           {currenWeather.temperature2m >= 0 && "+"}
-          {Math.round(currenWeather.temperature2m)}{unitSign}
+          {Math.round(currenWeather.temperature2m)}
+          {unitSign}
         </div>
         <div className="current-weather__main__desc">
           {getWeatherDescription(currenWeather.weatherCode)}
@@ -30,14 +31,16 @@ const CurrentWeather = () => {
           Max.
           <div>
             {todayMaxTemp >= 0 && "+"}
-            {Math.round(todayMaxTemp)}{unitSign}
+            {Math.round(todayMaxTemp)}
+            {unitSign}
           </div>
         </div>
         <div className="current-weather__details__maxmin__min">
           Min.
           <div>
             {todayMinTemp >= 0 && "+"}
-            {Math.round(todayMinTemp)}{unitSign}
+            {Math.round(todayMinTemp)}
+            {unitSign}
           </div>
         </div>
       </div>
