@@ -25,6 +25,7 @@ function App() {
     }
   }, [locationId, currentUnit, dispatch]);
 
+  // Kyiv, Ukraine city id for initial fetch
   useEffect(() => {
     dispatch(fetchLocation({ id: 270 }));
   }, [dispatch]);
