@@ -6,7 +6,10 @@ import WeatherHourly from "./components/WeatherHourly";
 import Header from "./components/Header";
 import { useAppDispatch, useAppSelector } from "./store/useAppDispatch";
 import { fetchWeather } from "./store/Weather/Weather.slice";
-import { fetchLocation } from "./store/Location/Location.slice";
+import {
+  fetchLocation,
+  fetchLocationByGPS,
+} from "./store/Location/Location.slice";
 import { getWeatherBackgroundStyle } from "./api/weatherApiHelpers/weatherCodesHelper";
 
 function App() {
@@ -16,8 +19,8 @@ function App() {
     (state) => state.Weather.current?.weatherCode
   );
   const currentUnit = useAppSelector((state) => state.MeasureUnits.currentUnit);
-
   const weatherIsLoading = useAppSelector((state) => state.Weather.isLoading);
+  const gpsSet = useAppSelector((state) => state.Location.gpsSet);
 
   useEffect(() => {
     if (locationId) {
@@ -25,10 +28,18 @@ function App() {
     }
   }, [locationId, currentUnit, dispatch]);
 
-  // Kyiv, Ukraine city id for initial fetch
   useEffect(() => {
-    dispatch(fetchLocation({ id: 270 }));
-  }, [dispatch]);
+    if (!gpsSet) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        dispatch(
+          fetchLocationByGPS({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+          })
+        );
+      });
+    }
+  }, [gpsSet]);
 
   return currentWeatherCode !== undefined ? (
     <div

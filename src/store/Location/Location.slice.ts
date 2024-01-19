@@ -6,15 +6,24 @@ export interface LocationData {
   latitude?: number;
   longitude?: number;
   country?: string;
+  gpsSet: boolean;
 }
 
-const initialState: LocationData = {};
+const initialState: LocationData = {
+  gpsSet: false,
+};
 
 export const MeasureUnitsSlice = createSlice({
   name: "MeasureUnits",
   initialState: initialState,
   reducers: {
     fetchLocation: (state, action: PayloadAction<{ id: number }>) => {},
+    fetchLocationByGPS: (
+      state,
+      action: PayloadAction<{ latitude: number; longitude: number }>
+    ) => {
+      state.gpsSet = true;
+    },
     locationFetched: (state, action: PayloadAction<LocationFetchData>) => {
       state.city = action.payload.city;
       state.id = action.payload.id;
@@ -25,6 +34,7 @@ export const MeasureUnitsSlice = createSlice({
   },
 });
 
-export const { fetchLocation, locationFetched } = MeasureUnitsSlice.actions;
+export const { fetchLocation, locationFetched, fetchLocationByGPS } =
+  MeasureUnitsSlice.actions;
 
 export default MeasureUnitsSlice.reducer;
