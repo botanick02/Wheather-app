@@ -1,40 +1,46 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { LocationFetchData } from "../../api/locationsApi";
+
+interface Location {
+  id: number;
+  city: string;
+  latitude: number;
+  longitude: number;
+  country: string;
+}
 export interface LocationData {
-  id?: number;
-  city?: string;
-  latitude?: number;
-  longitude?: number;
-  country?: string;
-  gpsSet: boolean;
+  searchedLocation?: Location;
+  gpsLocation?: Location;
+  failedToReceiveGPS: boolean;
 }
 
 const initialState: LocationData = {
-  gpsSet: false,
+  failedToReceiveGPS: false
 };
 
 export const MeasureUnitsSlice = createSlice({
   name: "MeasureUnits",
   initialState: initialState,
   reducers: {
-    fetchLocation: (state, action: PayloadAction<{ id: number }>) => {},
+    fetchLocationById: (state, action: PayloadAction<{ id: number }>) => {},
     fetchLocationByGPS: (
       state,
       action: PayloadAction<{ latitude: number; longitude: number }>
     ) => {
-      state.gpsSet = true;
     },
-    locationFetched: (state, action: PayloadAction<LocationFetchData>) => {
-      state.city = action.payload.city;
-      state.id = action.payload.id;
-      state.country = action.payload.country;
-      state.latitude = action.payload.latitude;
-      state.longitude = action.payload.longitude;
+    fetchLocationByGPSFail: (state) => {
+      state.failedToReceiveGPS = true;
+    },
+    GPSlocationFetched: (state, action: PayloadAction<LocationFetchData>) => {
+      state.gpsLocation = action.payload;
+    },
+    searchlocationFetched: (state, action: PayloadAction<LocationFetchData>) => {
+      state.searchedLocation = action.payload;
     },
   },
 });
 
-export const { fetchLocation, locationFetched, fetchLocationByGPS } =
+export const { fetchLocationById, GPSlocationFetched, searchlocationFetched, fetchLocationByGPS, fetchLocationByGPSFail } =
   MeasureUnitsSlice.actions;
 
 export default MeasureUnitsSlice.reducer;

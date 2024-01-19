@@ -15,7 +15,7 @@ const CurrentWeather = () => {
   return currenWeather && todayMaxTemp && todayMinTemp ? (
     <div className="current-weather">
       <div className="current-weather__day">{getDayOfWeek()}</div>
-      <div className="current-weather__location">{location.city}</div>
+      <div className="current-weather__location">{location.searchedLocation?.city ?? location.gpsLocation?.city}</div>
       <div className="current-weather__main">
         <div className="current-weather__main__temp">
           {currenWeather.temperature2m >= 0 && "+"}

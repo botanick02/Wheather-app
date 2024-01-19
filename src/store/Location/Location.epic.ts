@@ -1,9 +1,10 @@
 import { Epic, combineEpics, ofType } from "redux-observable";
 import { from, mergeMap, map } from "rxjs";
 import {
-  fetchLocation,
+  GPSlocationFetched,
   fetchLocationByGPS,
-  locationFetched,
+  fetchLocationById,
+  searchlocationFetched,
 } from "./Location.slice";
 import {
   LocationFetchData,
@@ -13,10 +14,10 @@ import {
 
 export const fetchLocationEpic: Epic<any, any, any> = (action$, state$) => {
   return action$.pipe(
-    ofType(fetchLocation),
+    ofType(fetchLocationById),
     mergeMap((action) =>
       from(fetchLocationByIdApi(action.payload.id)).pipe(
-        map((data: LocationFetchData) => locationFetched(data))
+        map((data: LocationFetchData) => searchlocationFetched(data))
       )
     )
   );
@@ -31,7 +32,7 @@ export const fetchLocationByGPSEpic: Epic<any, any, any> = (
     mergeMap((action) =>
       from(
         fetchLocationByGPSApi(action.payload.latitude, action.payload.longitude)
-      ).pipe(map((data: LocationFetchData) => locationFetched(data)))
+      ).pipe(map((data: LocationFetchData) => GPSlocationFetched(data)))
     )
   );
 };

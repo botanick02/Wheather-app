@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import { ReactComponent as SearchIcon } from "../img/svg/search.svg";
 import SearchDropdown from "./SearchDropdown";
 import { LocationFetchDataMini, fetchCities } from "../api/locationsApi";
-import { useAppSelector } from "../store/useAppDispatch";
+import { useAppDispatch } from "../store/useAppDispatch";
+import { fetchLocationById } from "../store/Location/Location.slice";
 
 const SearchBar = () => {
   const [searchInput, setSearchBarInput] = useState("");
   const [searchItems, setSearchItems] = useState<LocationFetchDataMini[]>([]);
-  const locationId = useAppSelector((state) => state.Location.id);
+
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     const getSearchItems = async () => {
@@ -21,10 +23,11 @@ const SearchBar = () => {
     }
   }, [searchInput]);
 
-  useEffect(() => {
+  const fetchLocation = (id: number) => {
     setSearchBarInput("");
     setSearchItems([]);
-  }, [locationId]);
+    dispatch(fetchLocationById({ id }));
+  };
 
   return (
     <div className="search-bar">
@@ -38,7 +41,7 @@ const SearchBar = () => {
       <div className="search-bar__submit">
         <SearchIcon />
       </div>
-      <SearchDropdown items={searchItems} />
+      <SearchDropdown items={searchItems} onItemClick={fetchLocation} />
     </div>
   );
 };
