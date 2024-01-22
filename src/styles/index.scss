@@ -31,9 +31,13 @@
   }
 }
 
+body {
+  min-height: 100%;
+}
+
 .App {
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   font-family: "Inter", sans-serif;
@@ -45,43 +49,47 @@
 .header {
   display: flex;
   justify-content: space-between;
-  padding: 1.4vw 1.5vw 0;
+  padding: 32px 38px 0;
 
   &__logo {
     font-weight: 100;
-    font-size: 1.4vw;
+    font-size: 32px;
   }
 
   .unit-switcher {
     font-family: Inter;
-    font-size: 1vw;
+    font-size: 24px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 4vw;
+    width: 100px;
+
+    svg {
+      cursor: pointer;
+    }
   }
 }
 
 .search-bar {
-  width: 24vw;
+  width: 530px;
   display: flex;
   align-items: center;
-  height: 1.5vw;
+  height: 31px;
   justify-content: space-between;
   background: rgba(255, 255, 255, 0.14);
   backdrop-filter: blur(7.5px);
-  padding: 0 0.2vw;
+  padding: 0 4px;
 
   &__input {
     display: flex;
-    width: 21vw;
-    height: 1.5vw;
+    width: 453px;
+    height: 31px;
     flex-direction: column;
     justify-content: center;
-    font-size: 0.7vw;
+    font-size: 16px;
     font-weight: 100;
     line-height: normal;
     background-color: rgba(255, 255, 255, 0);
@@ -99,8 +107,8 @@
 
   &__submit {
     cursor: pointer;
-    height: 1.5vw;
-    width: 1.5vw;
+    height: 20px;
+    width: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -108,7 +116,7 @@
 
   &__dropdown {
     position: absolute;
-    top: 1.6vw;
+    top: 31px;
     left: 0;
     width: 100%;
     background: rgba(255, 255, 255, 0.14);
@@ -116,7 +124,7 @@
   }
 
   &__dropdown-item {
-    font-size: 0.7vw;
+    font-size: 16px;
     font-weight: 100;
     line-height: normal;
     padding: 5px;
@@ -129,18 +137,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 2.5vw;
+  margin-top: 74px;
 
   &__day {
-    font-size: 0.9vw;
+    font-size: 20px;
     font-weight: 100;
-    margin-bottom: 0.2vw;
+    margin-bottom: 4px;
   }
 
   &__location {
-    font-size: 1.4vw;
+    font-size: 32px;
     font-weight: 200;
-    margin-bottom: 0.2vw;
+    margin-bottom: 4px;
   }
 
   &__main {
@@ -149,24 +157,23 @@
     align-items: center;
 
     &__temp {
-      font-size: 50px;
-      font-size: 4vw;
+      font-size: 98px;
       font-weight: 200;
     }
 
     &__desc {
-      font-size: 1.4vw;
+      font-size: 32px;
       font-weight: 200;
     }
   }
 
   &__maxmin {
-    width: 11.5vw;
+    width: 319px;
     display: flex;
     justify-content: space-between;
-    font-size: 1vw;
+    font-size: 20px;
     font-weight: 100;
-    margin-top: 0.5vw;
+    margin-top: 10px;
 
     div {
       display: table;
@@ -176,28 +183,28 @@
 }
 
 .daily-panel {
-  padding: 0 2.3vw;
-  margin: 4vw 0 0;
+  padding: 0 8px;
+  margin: 54px 0 0;
   display: flex;
   justify-content: center;
 }
 
 .daily-item {
-  width: 10.9vw;
+  width: 210px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 1vw;
+  margin: 0 27px;
 
   &__day {
-    font-size: 2.5vh;
+    font-size: 24px;
     font-style: normal;
     font-weight: 100;
-    margin-bottom: 1vh;
+    margin-bottom: 6px;
   }
 
   &__card {
-    height: 40vh;
+    height: 400px;
     background: rgba(255, 255, 255, 0.14);
     backdrop-filter: blur(7.5px);
     width: 100%;
@@ -207,38 +214,41 @@
     font-weight: 200;
 
     &__date {
-      font-size: 1vw;
+      font-size: 20px;
       font-weight: 200;
-      margin: 0.4vw 0 0;
+      margin: 8px 0 7px;
       text-align: center;
     }
 
     &__visual {
-      width: 8vh;
-      height: 8vh;
+      width: 100px;
+      height: 100px;
       filter: invert(100%);
-      margin: 1vw 0;
+      margin: 0 0 14px;
     }
 
     &__descr {
-      font-size: 1vw;
-      margin: 0 auto 0.5vw;
+      font-size: 20px;
+      margin: 0 auto 7px;
       text-align: center;
-      min-height: 2.5vw;
+      min-height: 45px;
       display: flex;
       align-items: center;
     }
 
     &__rain {
-      font-size: 0.781vw;
+      padding: 0 10px;
+      font-size: 15px;
+      margin-bottom: 20px;
+      text-align: center;
     }
 
     &__maxmin {
-      width: 8vw;
+      width: 145px;
       display: flex;
       justify-content: space-between;
-      font-size: 0.833vw;
-      margin-bottom: 0.5vw;
+      font-size: 16px;
+      margin-bottom: 20px;
 
       div {
         text-align: center;
@@ -247,18 +257,18 @@
 
     &__suntime {
       display: flex;
-      width: 8.5vw;
+      width: 181px;
       justify-content: space-between;
-      font-size: 0.8vw;
+      font-size: 16px;
 
       div {
         text-align: center;
       }
 
       img {
-        width: 2.604vw;
-        height: 2.604vw;
-        margin-bottom: 0.5vw;
+        width: 50px;
+        height: 50px;
+        margin-bottom: 4px;
       }
     }
   }
@@ -266,8 +276,8 @@
 
 .footer {
   margin-top: auto;
-  padding: 1vw;
-  font-size: 0.5vw;
+  padding: 25.6px;
+  font-size: 12.8px;
   display: flex;
   justify-content: center;
   a {
@@ -275,7 +285,7 @@
   }
 
   div {
-    margin: 0 1vw;
+    margin: 0 25.6px; /* 1vw */
   }
 }
 
@@ -283,7 +293,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   z-index: 100;
   backdrop-filter: blur(10px);

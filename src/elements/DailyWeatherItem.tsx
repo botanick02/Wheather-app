@@ -44,6 +44,9 @@ const DailyWeatherItem = ({ day }: DailyWeatherItemProps) => {
         <div className="daily-item__card__descr">
           {getWeatherDescription(day.weatherCode)}
         </div>
+        <div className="daily-item__card__rain">
+          Precipitation chance: {day.precipitationProbability}%
+        </div>
         <div className="daily-item__card__maxmin">
           <div>
             Max.
@@ -59,9 +62,6 @@ const DailyWeatherItem = ({ day }: DailyWeatherItemProps) => {
               {unitSign}
             </div>
           </div>
-        </div>
-        <div className="daily-item__card__rain">
-          Precipitation chance: {day.precipitationProbability}%
         </div>
         <div className="daily-item__card__suntime">
           <div>
