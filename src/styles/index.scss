@@ -137,18 +137,17 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 74px;
+  margin-top: 30px;
 
   &__day {
-    font-size: 20px;
+    font-size: 13px;
     font-weight: 100;
-    margin-bottom: 4px;
+    margin-bottom: 3px;
   }
 
   &__location {
-    font-size: 32px;
+    font-size: 20px;
     font-weight: 200;
-    margin-bottom: 4px;
   }
 
   &__main {
@@ -157,21 +156,21 @@ body {
     align-items: center;
 
     &__temp {
-      font-size: 98px;
+      font-size: 70px;
       font-weight: 200;
     }
 
     &__desc {
-      font-size: 32px;
+      font-size: 20px;
       font-weight: 200;
     }
   }
 
   &__maxmin {
-    width: 319px;
+    width: 250px;
     display: flex;
     justify-content: space-between;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 100;
     margin-top: 10px;
 
@@ -184,13 +183,13 @@ body {
 
 .daily-panel {
   padding: 0 8px;
-  margin: 54px 0 0;
+  margin: 40px 0 0;
   display: flex;
   justify-content: center;
 }
 
 .daily-item {
-  width: 210px;
+  width: 162px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -204,7 +203,7 @@ body {
   }
 
   &__card {
-    height: 400px;
+    height: 270px;
     background: rgba(255, 255, 255, 0.14);
     backdrop-filter: blur(7.5px);
     width: 100%;
@@ -214,41 +213,41 @@ body {
     font-weight: 200;
 
     &__date {
-      font-size: 20px;
+      font-size: 15px;
       font-weight: 200;
-      margin: 8px 0 7px;
+      margin: 5px 0 5px;
       text-align: center;
     }
 
     &__visual {
-      width: 100px;
-      height: 100px;
+      width: 50px;
+      height: 50px;
       filter: invert(100%);
-      margin: 0 0 14px;
+      margin: 0 0 7px;
     }
 
     &__descr {
-      font-size: 20px;
-      margin: 0 auto 7px;
+      font-size: 15px;
+      margin: 0 auto 5px;
       text-align: center;
-      min-height: 45px;
+      min-height: 35px;
       display: flex;
       align-items: center;
     }
 
     &__rain {
       padding: 0 10px;
-      font-size: 15px;
-      margin-bottom: 20px;
+      font-size: 11px;
+      margin-bottom: 10px;
       text-align: center;
     }
 
     &__maxmin {
-      width: 145px;
+      width: 115px;
       display: flex;
       justify-content: space-between;
-      font-size: 16px;
-      margin-bottom: 20px;
+      font-size: 13px;
+      margin-bottom: 15px;
 
       div {
         text-align: center;
@@ -257,17 +256,17 @@ body {
 
     &__suntime {
       display: flex;
-      width: 181px;
+      width: 140px;
       justify-content: space-between;
-      font-size: 16px;
+      font-size: 13px;
 
       div {
         text-align: center;
       }
 
       img {
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
         margin-bottom: 4px;
       }
     }
@@ -276,8 +275,8 @@ body {
 
 .footer {
   margin-top: auto;
-  padding: 25.6px;
-  font-size: 12.8px;
+  padding: 25px;
+  font-size: 12px;
   display: flex;
   justify-content: center;
   a {
@@ -285,7 +284,7 @@ body {
   }
 
   div {
-    margin: 0 25.6px; /* 1vw */
+    margin: 0 25px;
   }
 }
 
