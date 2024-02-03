@@ -5,12 +5,13 @@ import WeatherDaily from "./components/WeatherDaily";
 import WeatherHourly from "./components/WeatherHourly";
 import Header from "./components/Header";
 import { useAppDispatch, useAppSelector } from "./store/useAppDispatch";
-import { fetchWeather } from "./store/Weather/Weather.slice";
+import { fetchWeather, fetchfailed } from "./store/Weather/Weather.slice";
 import {
   fetchLocationByGPS,
   fetchLocationByGPSFail,
 } from "./store/Location/Location.slice";
 import { getWeatherBackgroundStyle } from "./api/weatherApiHelpers/weatherCodesHelper";
+import WelcomePanel from "./components/WelcomePanel";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -40,6 +41,7 @@ function App() {
       },
       (error) => {
         dispatch(fetchLocationByGPSFail());
+        dispatch(fetchfailed());
       }
     );
   }, [dispatch]);
@@ -51,7 +53,6 @@ function App() {
       )}`}
     >
       {weatherIsLoading && <div className={`blur-loading`}></div>}
-
       <div className="App">
         <Header />
         <CurrentWeather />
@@ -60,8 +61,14 @@ function App() {
         <Footer />
       </div>
     </div>
-  ) : (
+  ) : weatherIsLoading ? (
     <></>
+  ) : (
+    <div className={`App-background`}>
+      <div className="App">
+        <WelcomePanel />
+      </div>
+    </div>
   );
 }
 

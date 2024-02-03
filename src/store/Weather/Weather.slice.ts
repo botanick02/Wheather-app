@@ -26,7 +26,7 @@ interface WeatherState extends WeatherData {
 const initialState: WeatherState = {
   current: null,
   daily: [],
-  isLoading: true,
+  isLoading: false,
 };
 
 export const MeasureUnitsSlice = createSlice({
@@ -41,9 +41,12 @@ export const MeasureUnitsSlice = createSlice({
       state.daily = action.payload.daily;
       state.isLoading = false;
     },
+    fetchfailed: (state) => {
+      state.isLoading = false;
+    }
   },
 });
 
-export const { weatherFetched, fetchWeather } = MeasureUnitsSlice.actions;
+export const { weatherFetched, fetchWeather, fetchfailed } = MeasureUnitsSlice.actions;
 
 export default MeasureUnitsSlice.reducer;
