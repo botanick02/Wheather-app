@@ -1,5 +1,10 @@
 import { api } from "./core";
 
+
+const locationEndpointUrl = process.env.REACT_APP_GEO_SEARCH_API_ENDPOINT;
+
+console.log(locationEndpointUrl);
+
 export interface LocationFetchData {
   id: number;
   city: string;
@@ -17,7 +22,7 @@ export const fetchCities = async (
   city: string
 ): Promise<LocationFetchDataMini[]> => {
   return api<LocationFetchDataMini[]>(
-    `https://localhost:7107/api/GeoSearch/searchLocationsByName/${city}?resultsNumber=5`
+    `${locationEndpointUrl}/api/GeoSearch/searchLocationsByName/${city}?resultsNumber=5`
   ).then((response) => {
     return response;
   });
@@ -27,7 +32,7 @@ export const fetchLocationByIdApi = (
   id: number
 ): Promise<LocationFetchData> => {
   return api<LocationFetchData>(
-    `https://localhost:7107/api/GeoSearch/getLocationById/${id}`
+    `${locationEndpointUrl}/api/GeoSearch/getLocationById/${id}`
   ).then((response) => {
     return response;
   });
@@ -38,7 +43,7 @@ export const fetchLocationByGPSApi = (
   longitude: number
 ): Promise<LocationFetchData> => {
   return api<LocationFetchData>(
-    `https://localhost:7107/api/GeoSearch/getLocationByCords/${latitude}/${longitude}`
+    `${locationEndpointUrl}/api/GeoSearch/getLocationByCords/${latitude}/${longitude}`
   ).then((response) => {
     return response;
   });
