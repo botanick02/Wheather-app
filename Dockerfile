@@ -1,10 +1,12 @@
-FROM nginx:alpine
 
+FROM node:13.12.0-alpine as build
+WORKDIR /app
+COPY package*.json ./
+RUN npm i
+COPY . ./
+RUN npm run build
 
-COPY ./build /usr/share/nginx/html
-
-
+FROM nginx:stable-alpine
+COPY --from=build /app/build /usr/share/nginx/html
 EXPOSE 80
-
-
 CMD ["nginx", "-g", "daemon off;"]
