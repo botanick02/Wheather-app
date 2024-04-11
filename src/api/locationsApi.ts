@@ -1,7 +1,7 @@
 import { api } from "./core";
 
 
-const locationEndpointUrl = process.env.REACT_APP_GEO_SEARCH_API_ENDPOINT;
+const locationEndpointUrl = process.env.REACT_APP_GEO_SEARCH_API_ENDPOINT || "alturl";
 
 console.log(locationEndpointUrl);
 
