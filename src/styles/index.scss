@@ -185,11 +185,15 @@ body {
   padding: 0 8px;
   margin: 40px 0 0;
   display: flex;
-  justify-content: center;
+  overflow-x: scroll;
+}
+
+.daily-panel::before, .daily-panel::after {
+  content: '';
+  margin: auto;
 }
 
 .daily-item {
-  width: 162px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -198,6 +202,7 @@ body {
   &__day {
     font-size: 24px;
     font-style: normal;
+    width: 162px;
     font-weight: 100;
     margin-bottom: 6px;
   }
@@ -206,7 +211,7 @@ body {
     height: 270px;
     background: rgba(255, 255, 255, 0.14);
     backdrop-filter: blur(7.5px);
-    width: 100%;
+    width: 162px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -329,4 +334,54 @@ body {
   z-index: 100;
   backdrop-filter: blur(10px);
   transition: 0.3s;
+}
+
+
+@media screen and (max-width: 900px) {
+  .search-bar{
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .header {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+    &__logo {
+      display: none;
+    }
+
+    .search-bar{
+      margin-bottom: 20px;
+    }
+
+  }
+
+  .footer{
+    display: none;
+  }
+
+  .daily-panel {
+    margin: 100px 0 0 0;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .search-bar{
+    width: 80%;
+  }
+
+  .daily-panel{
+    margin: auto 0px;
+  }
+
+  .welcome-panel{
+
+    &__text {
+      padding: 10px;
+      font-size: 20px;
+    }
+  }
 }
