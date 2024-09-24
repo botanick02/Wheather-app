@@ -1,7 +1,7 @@
 import { api } from "./core";
 
 
-const locationEndpointUrl = process.env.REACT_APP_GEO_SEARCH_API_ENDPOINT || "http://localhost:5200";
+const locationEndpointUrl = process.env.REACT_APP_GEO_SEARCH_API_ENDPOINT || "https://geo-search-api-production.up.railway.app";
 
 console.log(locationEndpointUrl);
 
